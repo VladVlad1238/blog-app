@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/reset.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/index.css">
+
+  <title>Blog App</title>
+</head>
+
+<body>
+  <div class="main">
+      <div class="blog__container">
+          <div class="blog__first-col">
+              <h1 class="blog__title">New post</h1>
+              <input class="js-input-title input__title-text" type="text" placeholder="Title">
+              <textarea class="js-input-text input__content-text" for="input__content-text" placeholder="Write post"></textarea>
+              <button class="js-publish-btn post__publish-btn">Publish</button>
+              <button class="js-remove-btn remove__post-btn">Remove last post</button>
+              <button class="js-delete-blog-btn clear__blog-btn">Clear</button>
+          </div>
+          <div class="blog__second-col">
+              <h2 class="blog__line-title">Blog</h2>
+
+              <div class="js-posts posts">
+                <div class=" blog__content-lists">Still empty....</div> 
+              </div> 
+          </div>
+      </div>
+  </div>
+
+<script src="/scripts/index.js"></script>
+</body>
+  
+
+</html>
