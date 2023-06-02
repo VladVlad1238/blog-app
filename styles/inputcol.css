@@ -1,0 +1,38 @@
+.blog__first-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.blog__title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000000;
+}
+.input__title-text {
+  padding: 20px;
+  width: 500px;
+  height: 60px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  color: black;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #000000;
+}
+.input__content-text-lable {
+  display: block;
+}
+.input__content-text {
+  padding: 20px;
+  width: 500px;
+  height: 300px;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  color: black;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #000000;
+}

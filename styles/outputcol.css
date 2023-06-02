@@ -1,0 +1,28 @@
+.blog__second-col {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+.posts {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.post {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-bottom: 1px solid gray;
+}
+.post__date-time {
+  font-weight: bolder;
+  color: blue;
+}
+.post__title {
+  font-weight: bolder;
+  word-wrap: break-word;
+}
+.post__text {
+  word-wrap: break-word;
+}
