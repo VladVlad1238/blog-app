@@ -1,11 +1,46 @@
 let posts = [];
 
+
+const TITLE_INPUT_LIMIT = 10;
+const TEXT_INPUT_LIMIT = 20;
+
+
 const titleInputNode = document.querySelector('.js-input-title');
 const textInputNode = document.querySelector('.js-input-text');
 const postsNode = document.querySelector('.js-posts');
-const publishButtonNode = document.querySelector('.js-publish-btn ');
-const removePostButtonNode = document.querySelector('.js-remove-btn');
+const inputValidationNode = document.querySelector('.js-input-validation');
+const textValidationNode = document.querySelector('.js-text-validation');
+const publishButtonNode = document.querySelector('.js-publish-btn');
+const publishButtonDisabled = document.querySelector('.js-button__disabled');
 const deleteBlogButtonNode = document.querySelector('.js-delete-blog-btn');
+
+
+
+
+
+
+
+const validation = () => {
+  const titleLen = titleInputNode.value.length;
+  const textLen = textInputNode.value.length;
+  
+  const titleMaxLen = TITLE_INPUT_LIMIT - titleInputNode.value.length; 
+  const textMaxLen = TEXT_INPUT_LIMIT - textInputNode.value.length; 
+
+  if(titleLen <= TITLE_INPUT_LIMIT) {
+    inputValidationNode.innerText = `You have ${titleMaxLen} symbols`;
+  } else {
+    inputValidationNode.innerText = `Title more than ${TITLE_INPUT_LIMIT} symbols`;
+  }
+
+  if(textLen <= TEXT_INPUT_LIMIT) {
+    textValidationNode.innerText = `You have ${textMaxLen} symbols`;
+  } else {
+    textValidationNode.innerText = `Text more than ${TEXT_INPUT_LIMIT} symbols`;
+  }
+};
+inputValidationNode.addEventListener('input', validation());
+textValidationNode.addEventListener('input', validation());
 
 
 const getPostFromUser = () => {
@@ -22,16 +57,8 @@ const addPosts = ({title, text}) => {
   posts.push({
     title,
     text,
-  });
+  })
 };
-
-/*const removePosts = ({title, text}) => {
-  posts.odd({
-    title,
-    text,
-  });
-};*/
-
 
 const getPosts = () => {
   return posts;
@@ -42,7 +69,7 @@ const renderPost = () => {
 
   let postsHTML = '';
 
-  posts.forEach(post => {
+  posts.forEach((post) => {
      postsHTML += `
       <div class='post'>
         <p class='post__title'>${post.title}</p>
@@ -60,7 +87,28 @@ const clearInput = () => {
 const deleteBlog = () => {
   posts = [];
   renderPost();
-}  
+}
+
+const buttonDisabled = () => {
+  if(titleInputNode.value.length > 0 &&
+    textInputNode.value.length > 0) {
+     publishButtonNode.removeAttribute('disabled');
+    } else {
+     publishButtonNode.setAttribute('disabled', 'disabled');
+    }
+
+  if(titleInputNode.value.length > 10 &&
+    textInputNode.value.length > 20) {
+      publishButtonNode.setAttribute('disabled', 'disabled');
+    }
+};
+
+
+
+
+
+
+
 
 const publishButtonHandler = () => {
   const postFromUser = getPostFromUser();
@@ -71,18 +119,11 @@ const publishButtonHandler = () => {
 
   clearInput();
 
-  if(!addPosts()) {
-    return;
-  }
+  buttonDisabled();
+
 };
 
-/*const removeButtonHanderl = () => {
-  removePosts();
-}*/
-
 const deleteBlogButtonHandler = () => {
-  
-
   deleteBlog();
 
 };
@@ -90,5 +131,5 @@ const deleteBlogButtonHandler = () => {
 
 
 publishButtonNode.addEventListener('click', publishButtonHandler);
-//removePostButtonNode.addEventListener('click', removeButtonHanderl);
 deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
+publishButtonDisabled.addEventListener('input', buttonDisabled);

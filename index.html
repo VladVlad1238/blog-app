@@ -18,13 +18,14 @@
 <body>
   <div class="main">
       <div class="blog__container">
-          <div class="blog__first-col">
+          <div class="blog__first-col js-button__disabled">
               <h1 class="blog__title">New post</h1>
-              <input class="js-input-title input__title-text" type="text" placeholder="Title">
-              <textarea class="js-input-text input__content-text" for="input__content-text" placeholder="Write post"></textarea>
-              <button class="js-publish-btn post__publish-btn">Publish</button>
-              <button class="js-remove-btn remove__post-btn">Remove last post</button>
-              <button class="js-delete-blog-btn clear__blog-btn">Clear</button>
+              <input class="js-input-title input__title-text" type="text" placeholder="Title" onkeyup="validation()">
+              <span class="js-input-validation title__validation" data-chek= 'title'></span>
+              <textarea class="js-input-text input__content-text" for="input__content-text" placeholder="Write post" onkeyup="validation()"></textarea>
+              <span class="js-text-validation text__validation" data-chek= "text"></span>
+              <button class="js-publish-btn post__publish-btn" disabled ="disabled">Publish</button>
+              <button class="js-delete-blog-btn clear__blog-btn btn-red ">Clear</button>
           </div>
           <div class="blog__second-col">
               <h2 class="blog__line-title">Blog</h2>

@@ -9,7 +9,7 @@ body {
   flex-wrap: wrap;
   gap: 100px;
   display: flex;
-  width: 950px;
+  width: 1150px;
 }
 .blog__container {
   padding-top: 102px;
@@ -49,8 +49,9 @@ body {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #000000;
 }
-.post__publish-btn {
-  margin-bottom: 50px;
+.post__publish-btn,
+.clear__blog-btn{
+  margin-bottom: 10px;
   width: 520px;
   height: 80px;
   border: none;
@@ -62,8 +63,12 @@ body {
   background: #0094FF;
   cursor: pointer;
 }
-.post__publish-btn:hover {
+button:hover {
   opacity: 0.5;
+}
+.btn-red {
+  margin-bottom: 50px;
+  background: red;
 }
 
 .blog__line-title {
@@ -79,3 +84,13 @@ body {
   line-height: 39px;
   color: #979797;
 }
+
+
+
+.post {
+  width: 500px;
+}
+
+
+
+
