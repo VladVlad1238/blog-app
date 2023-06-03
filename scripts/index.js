@@ -75,9 +75,6 @@ const deleteBlog = () => {
 }
 
 const validation = () => {
-  const titleLen = titleInputNode.value.length;
-  const textLen = textInputNode.value.length;
-  
   const titleMaxLen = TITLE_INPUT_LIMIT - titleInputNode.value.length; 
   const textMaxLen = TEXT_INPUT_LIMIT - textInputNode.value.length; 
 
