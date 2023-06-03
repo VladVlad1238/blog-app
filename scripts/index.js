@@ -79,11 +79,7 @@ const deleteBlog = () => {
 const validation = () => {
   const titleLen = titleInputNode.value.length;
   const textLen = textInputNode.value.length;
-/*  
-    const titleMaxLen = ; 
-    const textMaxLen = ; 
-*/
-
+  
   if(titleLen <= TITLE_INPUT_LIMIT) {
     inputValidationNode.innerText = `You have ${TITLE_INPUT_LIMIT - titleLen} symbols`;
     inputValidationNode.classList.remove('color_red');
