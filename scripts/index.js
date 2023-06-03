@@ -99,7 +99,7 @@ const validation = () => {
 };
 
 
-const buttonDisabled = () => {
+/*const buttonDisabled = () => {
   if(titleInputNode.value.length > 0 &&
     textInputNode.value.length > 0) {
      publishButtonNode.removeAttribute('disabled');
@@ -113,7 +113,7 @@ const buttonDisabled = () => {
       publishButtonNode.setAttribute('disabled', 'disabled');
     }
 };
-
+*/
 const publishButtonHandler = () => {
   const postFromUser = getPostFromUser();
  
@@ -123,7 +123,7 @@ const publishButtonHandler = () => {
 
   clearInput();
 
-  buttonDisabled();
+ // buttonDisabled();
 
 };
 
@@ -134,6 +134,6 @@ const deleteBlogButtonHandler = () => {
 
 publishButtonNode.addEventListener('click', publishButtonHandler);
 deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
-publishButtonDisabled.addEventListener('input', buttonDisabled);
+//publishButtonDisabled.addEventListener('input', buttonDisabled);
 inputValidationNode.addEventListener('input', validation());
 textValidationNode.addEventListener('input', validation());
