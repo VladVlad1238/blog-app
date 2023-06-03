@@ -137,5 +137,5 @@ deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
 publishButtonDisabled.addEventListener('input', buttonDisabled);
 inputValidationNode.addEventListener('input', validation);
 textValidationNode.addEventListener('input', validation);
-inputValidationNode.addEventListener('paste', validation);
-textValidationNode.addEventListener('paste', validation);
+inputValidationNode.addEventListener('paste', validation());
+textValidationNode.addEventListener('paste', validation());
