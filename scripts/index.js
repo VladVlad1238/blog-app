@@ -5,7 +5,6 @@ const TITLE_INPUT_LIMIT = 100;
 const TEXT_INPUT_LIMIT = 200;
 const RESET_TEXT_INPUT = 'You have 100 symbols';
 const RESET_TEXT = 'You have 200 symbols';
-const BLOG_CONTENT_LIST_TEXT = '<div class="js-content-list blog__content-lists">Still empty....</div>';
 
 
 const titleInputNode = document.querySelector('.js-input-title');
@@ -16,7 +15,6 @@ const textValidationNode = document.querySelector('.js-text-validation');
 const publishButtonNode = document.querySelector('.js-publish-btn');
 const publishButtonDisabled = document.querySelector('.js-button__disabled');
 const deleteBlogButtonNode = document.querySelector('.js-delete-blog-btn');
-const blogContentListNode = document.querySelector('.js-content-list');
 
 
 const getPostFromUser = () => {
@@ -73,7 +71,6 @@ const clearInput = () => {
 
 const deleteBlog = () => {
   posts = [];
-  blogContentListNode.innerHTML = `${BLOG_CONTENT_LIST_TEXT}`;
   renderPost();
 }
 

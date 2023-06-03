@@ -13,14 +13,29 @@ body {
   margin: 0 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 100px;
+  justify-content: space-between;
   display: flex;
   width: 1150px;
 }
 .blog__container {
   padding-top: 102px;
 }
-
+@media (max-width: 1199px) {
+  .blog__container {
+    padding: 0 15px;
+    padding-top: 80px;
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .blog__container {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 12px;
+    padding-top: 50px;
+    width: 300px;
+  }
+}
 
 
 

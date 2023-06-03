@@ -3,11 +3,32 @@
   flex-direction: column;
   gap: 30px;
 }
+@media (max-width: 1199px) {
+  .blog__first-col {
+    gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .blog__first-col {
+    margin: 0 auto;
+    gap: 10px;
+  }
+}
 .blog__title {
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
   color: #000000;
+}
+@media (max-width: 1199px) {
+  .blog__title {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+@media (max-width: 767px) {
+  .blog__title {
+  }
 }
 .input__title-text {
   padding: 20px;
@@ -20,6 +41,23 @@
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #000000;
+}
+@media (max-width: 1199px) {
+  .input__title-text {
+    padding: 13px;
+    width: 400px;
+    height: 40px;
+    font-size: 28px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .input__title-text {
+    max-width: 250px;
+    max-height: 250px;
+    font-size: 20px;
+    line-height: 30px;
+  }
 }
 .input__content-text-lable {
   display: block;
@@ -35,4 +73,26 @@
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #000000;
+}
+@media (max-width: 1199px) {
+  .input__content-text {
+    padding: 20px;
+    width: 385px;
+    height: 300px;
+    font-size: 30px;
+    line-height: 38px;
+
+  }
+}
+@media (max-width: 767px) {
+  .input__content-text {
+    padding: 20px;
+    max-width: 235px;
+    min-width: 235px;
+    max-height: 250px;
+    min-height: 250px;
+    font-size: 25px;
+    line-height: 30px;
+
+  }
 }
