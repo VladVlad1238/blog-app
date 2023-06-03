@@ -15,6 +15,8 @@ const textValidationNode = document.querySelector('.js-text-validation');
 const publishButtonNode = document.querySelector('.js-publish-btn');
 const publishButtonDisabled = document.querySelector('.js-button__disabled');
 const deleteBlogButtonNode = document.querySelector('.js-delete-blog-btn');
+console.log(titleInputNode);
+console.log(textValidationNode);
 
 
 const getPostFromUser = () => {
@@ -77,10 +79,10 @@ const deleteBlog = () => {
 const validation = () => {
   const titleLen = titleInputNode.value.length;
   const textLen = textInputNode.value.length;
-  
-  /*const titleMaxLen = TITLE_INPUT_LIMIT - titleLen; 
-  const textMaxLen = TEXT_INPUT_LIMIT - textLen; 
- */
+/*  
+    const titleMaxLen = ; 
+    const textMaxLen = ; 
+*/
 
   if(titleLen <= TITLE_INPUT_LIMIT) {
     inputValidationNode.innerText = `You have ${TITLE_INPUT_LIMIT - titleLen} symbols`;
@@ -136,6 +138,6 @@ const deleteBlogButtonHandler = () => {
 publishButtonNode.addEventListener('click', publishButtonHandler);
 deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
 publishButtonDisabled.addEventListener('input', buttonDisabled);
-inputValidationNode.addEventListener('input', validation);
-textValidationNode.addEventListener('input', validation);
+titleInputNode.addEventListener('input', validation);
+textInputNode.addEventListener('input', validation);
 
