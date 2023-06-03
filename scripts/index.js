@@ -81,7 +81,7 @@ const validation = () => {
   const titleMaxLen = TITLE_INPUT_LIMIT - titleInputNode.value.length; 
   const textMaxLen = TEXT_INPUT_LIMIT - textInputNode.value.length; 
 
-  if(titleLen <= TITLE_INPUT_LIMIT) {
+  if(titleLen < TITLE_INPUT_LIMIT) {
     inputValidationNode.innerText = `You have ${titleMaxLen} symbols`;
     inputValidationNode.classList.remove('color_red');
   } else {
@@ -89,7 +89,7 @@ const validation = () => {
     inputValidationNode.classList.add('color_red');
   }
 
-  if(textLen <= TEXT_INPUT_LIMIT) {
+  if(textLen < TEXT_INPUT_LIMIT) {
     textValidationNode.innerText = `You have ${textMaxLen} symbols`;
     textValidationNode.classList.remove('color_red');
   } else {
@@ -135,5 +135,5 @@ const deleteBlogButtonHandler = () => {
 publishButtonNode.addEventListener('click', publishButtonHandler);
 deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
 publishButtonDisabled.addEventListener('input', buttonDisabled);
-inputValidationNode.addEventListener('change', validation);
-textValidationNode.addEventListener('change', validation);
+inputValidationNode.addEventListener('input', validation());
+textValidationNode.addEventListener('input', validation());
