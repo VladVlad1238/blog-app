@@ -81,7 +81,7 @@ const validation = () => {
   const titleMaxLen = TITLE_INPUT_LIMIT - titleLen; 
   const textMaxLen = TEXT_INPUT_LIMIT - textLen; 
 
-  if(titleLen < TITLE_INPUT_LIMIT) {
+  if(titleLen <= TITLE_INPUT_LIMIT) {
     inputValidationNode.innerText = `You have ${titleMaxLen} symbols`;
     inputValidationNode.classList.remove('color_red');
   } else {
@@ -89,7 +89,7 @@ const validation = () => {
     inputValidationNode.classList.add('color_red');
   }
 
-  if(textLen < TEXT_INPUT_LIMIT) {
+  if(textLen <= TEXT_INPUT_LIMIT) {
     textValidationNode.innerText = `You have ${textMaxLen} symbols`;
     textValidationNode.classList.remove('color_red');
   } else {
@@ -99,7 +99,7 @@ const validation = () => {
 };
 
 
-/*const buttonDisabled = () => {
+const buttonDisabled = () => {
   if(titleInputNode.value.length > 0 &&
     textInputNode.value.length > 0) {
      publishButtonNode.removeAttribute('disabled');
@@ -113,7 +113,7 @@ const validation = () => {
       publishButtonNode.setAttribute('disabled', 'disabled');
     }
 };
-*/
+
 const publishButtonHandler = () => {
   const postFromUser = getPostFromUser();
  
@@ -123,7 +123,7 @@ const publishButtonHandler = () => {
 
   clearInput();
 
- // buttonDisabled();
+  buttonDisabled();
 
 };
 
@@ -134,6 +134,6 @@ const deleteBlogButtonHandler = () => {
 
 publishButtonNode.addEventListener('click', publishButtonHandler);
 deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
-//publishButtonDisabled.addEventListener('input', buttonDisabled);
-inputValidationNode.addEventListener('input', validation());
-textValidationNode.addEventListener('input', validation());
+publishButtonDisabled.addEventListener('input', buttonDisabled);
+inputValidationNode.addEventListener('input', validation);
+textValidationNode.addEventListener('input', validation);
