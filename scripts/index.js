@@ -135,5 +135,5 @@ const deleteBlogButtonHandler = () => {
 publishButtonNode.addEventListener('click', publishButtonHandler);
 deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
 publishButtonDisabled.addEventListener('input', buttonDisabled);
-inputValidationNode.addEventListener('input', validation);
-textValidationNode.addEventListener('input', validation);
+inputValidationNode.addEventListener('change', validation);
+textValidationNode.addEventListener('change', validation);
