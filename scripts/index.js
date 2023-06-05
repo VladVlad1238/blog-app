@@ -2,9 +2,9 @@ let posts = [];
 
 
 const TITLE_INPUT_LIMIT = 100;
-const TEXT_INPUT_LIMIT = 200;
+const TEXT_INPUT_LIMIT = 300;
 const RESET_TEXT_INPUT = 'You have 100 symbols';
-const RESET_TEXT = 'You have 200 symbols';
+const RESET_TEXT = 'You have 300 symbols';
 
 
 const titleInputNode = document.querySelector('.js-input-title');
@@ -14,9 +14,9 @@ const inputValidationNode = document.querySelector('.js-input-validation');
 const textValidationNode = document.querySelector('.js-text-validation');
 const publishButtonNode = document.querySelector('.js-publish-btn');
 const publishButtonDisabled = document.querySelector('.js-button__disabled');
+const clearInputButtonNode = document.querySelector('.js-clear-input-btn')
 const deleteBlogButtonNode = document.querySelector('.js-delete-blog-btn');
-console.log(titleInputNode);
-console.log(textValidationNode);
+console.log(clearInputButtonNode);
 
 
 const getPostFromUser = () => {
@@ -74,6 +74,7 @@ const clearInput = () => {
 const deleteBlog = () => {
   posts = [];
   renderPost();
+  clearInput();
 }
 
 const validation = () => {
@@ -107,10 +108,13 @@ const buttonDisabled = () => {
      publishButtonNode.classList.add('btn-disabled');
     }
 
-  if(titleInputNode.value.length > 100 &&
-    textInputNode.value.length > 200) {
+  if(titleInputNode.value.length > 100) {
       publishButtonNode.setAttribute('disabled', 'disabled');
-    }
+    } 
+
+  if(textInputNode.value.length > 300) {
+    publishButtonNode.setAttribute('disabled', 'disabled');
+  }
 };
 
 const publishButtonHandler = () => {
@@ -126,6 +130,11 @@ const publishButtonHandler = () => {
 
 };
 
+const clearInputButton = () => {
+  clearInput();
+  buttonDisabled()
+}
+
 const deleteBlogButtonHandler = () => {
   deleteBlog();
 };
@@ -133,6 +142,7 @@ const deleteBlogButtonHandler = () => {
 
 publishButtonNode.addEventListener('click', publishButtonHandler);
 deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
+clearInputButtonNode.addEventListener('click', clearInputButton);
 publishButtonDisabled.addEventListener('input', buttonDisabled);
 titleInputNode.addEventListener('input', validation);
 textInputNode.addEventListener('input', validation);

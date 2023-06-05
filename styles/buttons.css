@@ -1,5 +1,6 @@
 .post__publish-btn,
-.clear__blog-btn{
+.clear__blog-btn,
+.clear__input-btn{
   margin-bottom: 10px;
   width: 540px;
   height: 80px;
@@ -16,7 +17,8 @@
 }
 @media (max-width: 1199px) {
   .post__publish-btn,
-  .clear__blog-btn{
+  .clear__blog-btn,
+  .clear__input-btn{
   margin-bottom: 10px;
   width: 430px;
   height: 60px;
@@ -26,7 +28,8 @@
 }
 @media (max-width: 767px) {
   .post__publish-btn,
-  .clear__blog-btn{
+  .clear__blog-btn,
+  .clear__input-btn{
   margin-bottom: 10px;
   width: 100%;
   height: 60px;
@@ -48,6 +51,11 @@
   border: 2px solid red;
   color: red;
 }
+.clear__input-btn:hover {
+  background-color: transparent;
+  border: 2px solid green;
+  color: green;
+}
 .post__publish-btn[disabled], .post__publish-btn[disabled]:hover {
   color: white;
   background-color: grey;
@@ -56,5 +64,8 @@
 }
 .color_red {
   color: red;
+}
+.color_green {
+  background-color: green;
 }
 
