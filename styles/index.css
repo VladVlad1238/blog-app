@@ -2,7 +2,9 @@
 @import "../styles/outputcol.css";
 @import "../styles/buttons.css";
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   width: 100%;

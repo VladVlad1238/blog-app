@@ -3,6 +3,7 @@ let posts = [];
 
 const TITLE_INPUT_LIMIT = 100;
 const TEXT_INPUT_LIMIT = 300;
+const ZERO = 0;
 const RESET_TEXT_INPUT = 'You have 100 symbols';
 const RESET_TEXT = 'You have 300 symbols';
 
@@ -14,9 +15,9 @@ const inputValidationNode = document.querySelector('.js-input-validation');
 const textValidationNode = document.querySelector('.js-text-validation');
 const publishButtonNode = document.querySelector('.js-publish-btn');
 const publishButtonDisabled = document.querySelector('.js-button__disabled');
-const clearInputButtonNode = document.querySelector('.js-clear-input-btn')
+const clearInputButtonNode = document.querySelector('.js-clear-input-btn');
 const deleteBlogButtonNode = document.querySelector('.js-delete-blog-btn');
-console.log(clearInputButtonNode);
+
 
 
 const getPostFromUser = () => {
@@ -31,24 +32,30 @@ const getPostFromUser = () => {
     text: text,
     date: date,
     time: time,
-  }
+  };
 };
 
-const addPosts = ({title, text, date, time}) => {
+const addPost = ({title, text, date, time}) => {
   posts.push({
     title,
     text,
     date,
     time,
   })
-  return
+  return;
 };
 
 const getPosts = () => {
   return posts;
 };
 
-const renderPost = () => {
+const deleteBlog = () => {
+  posts = [];
+  renderPosts();
+  inputManipulation();
+};
+
+const renderPosts = () => {
   const posts = getPosts();
 
   let postsHTML = '';
@@ -64,18 +71,22 @@ const renderPost = () => {
   postsNode.innerHTML = postsHTML;
 };
 
-const clearInput = () => {
-  titleInputNode.value = '';
-  textInputNode.value = '';
-  inputValidationNode.innerText = RESET_TEXT_INPUT;
-  textValidationNode.innerText = RESET_TEXT;
-};
 
-const deleteBlog = () => {
-  posts = [];
-  renderPost();
+const inputManipulation = () => {
+  const focusInput = () => {
+    titleInputNode.focus();
+  };
+
+  const clearInput = () => {
+    titleInputNode.value = '';
+    textInputNode.value = '';
+    inputValidationNode.innerText = RESET_TEXT_INPUT;
+    textValidationNode.innerText = RESET_TEXT;
+    focusInput();
+  };
+  focusInput();
   clearInput();
-}
+};
 
 const validation = () => {
   const titleLen = titleInputNode.value.length;
@@ -87,7 +98,7 @@ const validation = () => {
   } else {
     inputValidationNode.innerText = `Title more than ${TITLE_INPUT_LIMIT} symbols`;
     inputValidationNode.classList.add('color_red');
-  }
+  };
 
   if(textLen <= TEXT_INPUT_LIMIT) {
     textValidationNode.innerText= `You have ${TEXT_INPUT_LIMIT - textLen} symbols`;
@@ -95,54 +106,51 @@ const validation = () => {
   } else {
     textValidationNode.innerText = `Text more than ${TEXT_INPUT_LIMIT} symbols`;
     textValidationNode.classList.add('color_red');
-  }
+  };
 };
 
 
 const buttonDisabled = () => {
-  if(titleInputNode.value.length > 0 &&
-    textInputNode.value.length > 0) {
+  if(titleInputNode.value.length > ZERO &&
+    textInputNode.value.length > ZERO ) {
      publishButtonNode.removeAttribute('disabled');
     } else {
      publishButtonNode.setAttribute('disabled', 'disabled');
      publishButtonNode.classList.add('btn-disabled');
-    }
+    };
 
-  if(titleInputNode.value.length > 100) {
+  if(titleInputNode.value.length > TITLE_INPUT_LIMIT) {
       publishButtonNode.setAttribute('disabled', 'disabled');
-    } 
+    }; 
 
-  if(textInputNode.value.length > 300) {
+  if(textInputNode.value.length > TEXT_INPUT_LIMIT) {
     publishButtonNode.setAttribute('disabled', 'disabled');
-  }
+  };
 };
 
 const publishButtonHandler = () => {
   const postFromUser = getPostFromUser();
- 
-  addPosts(postFromUser); 
 
-  renderPost();
-
-  clearInput();
-
+  addPost(postFromUser); 
+  renderPosts();
+  inputManipulation();
   buttonDisabled();
-
 };
 
 const clearInputButton = () => {
-  clearInput();
-  buttonDisabled()
-}
+  buttonDisabled();
+  inputManipulation();
+};
 
 const deleteBlogButtonHandler = () => {
   deleteBlog();
+  inputManipulation();
 };
 
 
 publishButtonNode.addEventListener('click', publishButtonHandler);
-deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
 clearInputButtonNode.addEventListener('click', clearInputButton);
+deleteBlogButtonNode.addEventListener('click', deleteBlogButtonHandler);
 publishButtonDisabled.addEventListener('input', buttonDisabled);
 titleInputNode.addEventListener('input', validation);
 textInputNode.addEventListener('input', validation);
